@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pn. Misha | Pakar Runding dan Penasihat Jualan Toyota Malaysia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --toyota-red: #eb0a1e;
+        --dark-grey: #222;
+        --light-grey: #f8f9fa;
+        --white: #ffffff;
+        --whatsapp-green: #25d366;
+    }
+
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: 'Inter', sans-serif; 
+    }
+
+    body { 
+        background-color: var(--white); 
+        color: var(--dark-grey); 
+        line-height: 1.6; 
+    }
+
+    /* Navigation & Logo */
+    nav { 
+        padding: 15px 20px; 
+        text-align: center; 
+        border-bottom: 1px solid #eee; 
+        position: sticky; 
+        top: 0; 
+        background: white; 
+        z-index: 1000; 
+    }
+
+    .main-logo {
+        height: 45px; /* Saiz logo Toyota yang optimum */
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    /* Header & Profile */
+    header { 
+        padding: 50px 20px; 
+        text-align: center; 
+        background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%); 
+    }
+
+    .profile-img { 
+        width: 140px; 
+        height: 140px; 
+        border-radius: 50%; 
+        object-fit: cover; 
+        border: 4px solid var(--toyota-red); 
+        margin-bottom: 20px; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    }
+
+    h1 { font-size: 1.8rem; margin-bottom: 5px; }
+
+    .badge { 
+        background: #e3f2fd; 
+        color: #0d47a1; 
+        padding: 5px 15px; 
+        border-radius: 20px; 
+        font-size: 0.75rem; 
+        font-weight: 600; 
+    }
+
+    /* Stats Section */
+    .stats-grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px; 
+        padding: 20px; 
+        max-width: 600px; 
+        margin: 0 auto; 
+    }
+
+    .stat-card { 
+        background: var(--light-grey); 
+        padding: 15px; 
+        border-radius: 12px; 
+        text-align: center; 
+    }
+
+    .stat-card h3 { color: var(--toyota-red); font-size: 1.3rem; }
+    .stat-card p { font-size: 0.8rem; color: #666; }
+
+    /* Buttons */
+    .btn-whatsapp { 
+        display: block; 
+        background-color: var(--whatsapp-green); 
+        color: white; 
+        text-decoration: none; 
+        padding: 16px; 
+        border-radius: 50px; 
+        font-weight: 700; 
+        margin: 25px auto; 
+        max-width: 350px; 
+        text-align: center; 
+        box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2); 
+        transition: 0.3s ease;
+    }
+
+    .btn-whatsapp:active { transform: scale(0.98); }
+
+    .section-title { 
+        text-align: center; 
+        margin: 40px 0 20px; 
+        font-weight: 700; 
+        font-size: 1.4rem; 
+        padding: 0 20px; 
+    }
+
+    /* Testimonials (Horizontal Scroll) */
+    .testimonials { padding: 40px 20px; background: #fffafb; }
+    
+    .testi-container { 
+        display: flex; 
+        overflow-x: auto; 
+        gap: 15px; 
+        padding: 10px 5px 20px 5px; 
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .testi-card { 
+        min-width: 280px; 
+        background: white; 
+        padding: 20px; 
+        border-radius: 15px; 
+        border: 1px solid #f0f0f0; 
+        border-left: 4px solid var(--toyota-red);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+    }
+
+    .testi-text { font-style: italic; font-size: 0.9rem; color: #444; }
+    .testi-name { font-weight: 700; display: block; margin-top: 10px; color: var(--toyota-red); font-size: 0.85rem; }
+    
+    .testi-container::-webkit-scrollbar { display: none; } /* Sorok scrollbar */
+
+    /* Documents Section */
+    .docs-section { 
+        padding: 40px 20px; 
+        background: var(--dark-grey); 
+        color: white; 
+        border-radius: 30px 30px 0 0; 
+    }
+
+    .doc-wrapper { max-width: 500px; margin: 0 auto; }
+
+    .doc-box { 
+        background: rgba(255,255,255,0.05); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 20px; 
+        border-left: 3px solid var(--toyota-red);
+    }
+
+    .doc-box h3 { 
+        font-size: 1rem; 
+        color: var(--toyota-red); 
+        margin-bottom: 12px; 
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .doc-list { list-style: none; }
+    .doc-list li { font-size: 0.9rem; margin-bottom: 8px; color: #ddd; display: flex; align-items: center; }
+    .doc-list li::before { content: "✓"; color: var(--toyota-red); margin-right: 10px; font-weight: bold; }
+
+    /* Car Catalog */
+    .catalog { padding: 40px 20px; }
+    
+    .car-card { 
+        border: 1px solid #eee; 
+        border-radius: 20px; 
+        padding: 20px; 
+        margin-bottom: 20px; 
+        transition: 0.3s;
+    }
+
+    .car-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+    .car-price { color: var(--toyota-red); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; }
+
+    .btn-book { 
+        display: inline-block; 
+        width: 100%; 
+        background: var(--dark-grey); 
+        color: white; 
+        text-align: center; 
+        padding: 12px; 
+        border-radius: 10px; 
+        text-decoration: none; 
+        margin-top: 15px; 
+        font-weight: 600; 
+        font-size: 0.9rem; 
+    }
+
+    /* Footer */
+    footer { 
+        text-align: center; 
+        padding: 30px 20px; 
+        font-size: 0.75rem; 
+        color: #bbb; 
+        background: #fff; 
+        border-top: 1px solid #f5f5f5;
+    }
+
+    /* Desktop View Adjustments */
+    @media (min-width: 768px) {
+        .stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .testi-container { justify-content: center; overflow-x: hidden; flex-wrap: wrap; }
+        .testi-card { min-width: 350px; }
+    }
+
+
+/* Tambah kod ini di dalam bahagian <style> */
+.car-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    object-fit: contain; /* Memastikan gambar tidak kembang atau terpenyet */
+}
+
+/* Mengemaskini kotak kad kereta untuk sokongan gambar */
+.car-card { 
+    border: 1px solid #eee; 
+    border-radius: 20px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    transition: 0.3s;
+    background: #fff;
+    text-align: center; /* Memastikan teks dan gambar berada di tengah */
+}
+        
+/* Bahagian Langkah/Timeline */
+.steps-section {
+    padding: 50px 20px;
+    background-color: #fcfcfc;
+}
+
+.steps-container {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.step-card {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Garis penghubung antara langkah */
+.step-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 45px;
+    width: 2px;
+    height: calc(100% - 15px);
+    background: #eee;
+}
+
+.step-number {
+    min-width: 42px;
+    height: 42px;
+    background-color: var(--toyota-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-right: 20px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(235, 10, 30, 0.2);
+}
+
+.step-content h4 {
+    font-size: 1rem;
+    color: var(--dark-grey);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-content p {
+    font-size: 0.85rem;
+    color: #777;
+    line-height: 1.5;
+}
+        
+/* Bahagian Pakej & Aksesori */
+.accessories-section {
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.acc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Susunan 2 kotak sebaris di telefon */
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.acc-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+
+.acc-card:hover {
+    border-color: var(--toyota-red);
+}
+
+.acc-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.acc-card h4 {
+    font-size: 0.9rem;
+    color: var(--dark-grey);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.acc-card p {
+    font-size: 0.75rem;
+    color: #777;
+    line-height: 1.4;
+}
+
+/* Penyesuaian untuk skrin lebih besar */
+@media (min-width: 768px) {
+    .acc-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+        
+        
+</style>
+
+</head>
+<body>
+
+    <nav>
+    <img src="https://static.vecteezy.com/system/resources/previews/020/927/378/non_2x/toyota-brand-logo-car-symbol-with-name-black-design-japan-automobile-illustration-free-vector.jpg" alt="Toyota Logo" class="main-logo">
+</nav>
+
+
+    <header>
+    <img src="https://via.placeholder.com/150" alt="Pn Misha" class="profile-img">
+    <div><span class="badge">PENASIHAT JUALAN BERTAULIAH</span></div>
+    <h1>Puan Misha</h1>
+    <p style="color: #444; font-weight: 600; margin-top: 10px; letter-spacing: 1px;">Efisien • Jujur • Profesional</p>
+    <p style="color: #666; font-size: 0.9rem; max-width: 340px; margin: 12px auto; line-height: 1.5;">
+        Nikmati pengalaman memiliki kenderaan baru yang lebih privasi. Saya sedia membantu anda dari proses pemilihan sehingga penghantaran terus ke pintu rumah, tanpa anda perlu bersesak di galeri jualan.
+    </p>
+    <a href="https://wa.me/60189801186" class="btn-whatsapp">MULAKAN KONSULTASI ANDA</a>
+    <p style="font-size: 0.85rem; color: #2ecc71; margin-top: 10px; font-weight: 600;">✓ Kami hargai kenderaan lama anda dengan tawaran nilai kompetitif</p>
+</header>
+
+
+
+    <section class="stats-grid">
+        <div class="stat-card"><h3>5+</h3><p>Tahun Servis</p></div>
+        <div class="stat-card"><h3>500+</h3><p>Penyerahan Kereta</p></div>
+        <div class="stat-card"><h3>98%</h3><p>Kelulusan Bank</p></div>
+        <div class="stat-card"><h3>Pantas</h3><p>Urusan Digital</p></div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">Testimoni Pelanggan</h2>
+        <div class="testi-container">
+            <div class="testi-card">
+                <p class="testi-text">"Sangat puas hati dengan layanan Pn Misha. Urusan dari awal sampai ambil kunci sangat lancar. Beliau sangat jujur!"</p>
+                <span class="testi-name">- Encik Khairul, Skudai</span>
+            </div>
+            <div class="testi-card">
+                <p class="testi-text">"Dokumen saya sangkut, tapi Pn Misha bantu guide sampai loan lulus. Terbaik servis A+!"</p>
+                <span class="testi-name">- Puan Azlina, Pasir Gudang</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="docs-section">
+        <h2 class="section-title" style="color: white;">Dokumen Yang Perlu Ready</h2>
+        <ul class="doc-list">
+            <li class="doc-item"><span class="doc-icon">🆔</span> <div><strong>Kakitangan Swasta/Kerajaan:</strong><br><small>IC, Lesen, Slip Gaji 3 Bulan & KWSP</small></div></li>
+            <li class="doc-item"><span class="doc-icon">💼</span> <div><strong>Peniaga/Self-Employed:</strong><br><small>IC, Lesen, SSM & Penyata Bank 6 Bulan</small></div></li>
+        </ul>
+    </section>
+
+
+<section style="padding: 40px 20px; background: #fff;">
+    <h2 class="section-title">Kenapa Berurusan Dengan Saya?</h2>
+    <div style="max-width: 500px; margin: 0 auto;">
+        <div style="margin-bottom: 25px; border-bottom: 1px solid #f5f5f5; padding-bottom: 15px;">
+            <h4 style="color: var(--toyota-red); margin-bottom: 5px;">Layanan Eksklusif Terus</h4>
+            <p style="font-size: 0.85rem; color: #666;">Urusan terus daripada Penasihat Jualan bertauliah untuk jaminan kualiti servis tanpa melibatkan pihak ketiga.</p>
+        </div>
+        <div style="margin-bottom: 25px; border-bottom: 1px solid #f5f5f5; padding-bottom: 15px;">
+            <h4 style="color: var(--toyota-red); margin-bottom: 5px;">Dokumentasi Maya Sepenuhnya</h4>
+            <p style="font-size: 0.85rem; color: #666;">Proses penghantaran dokumen dilakukan secara digital—lebih selamat, sulit, dan sangat menjimatkan masa anda.</p>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <h4 style="color: var(--toyota-red); margin-bottom: 5px;">Analisis Pinjaman Telus</h4>
+            <p style="font-size: 0.85rem; color: #666;">Saya akan bimbing anda langkah demi langkah sehingga lulus dengan pilihan kadar faedah terbaik daripada bank.</p>
+        </div>
+    </div>
+</section>
+    
+
+    <section class="steps-section">
+    <h2 class="section-title">4 Langkah Mudah Miliki Toyota</h2>
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h4>Sesi Perundingan Maya</h4>
+                <p>Bincangkan model pilihan, bajet, dan keperluan harian anda secara santai melalui WhatsApp atau panggilan telefon.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h4>Penghantaran Dokumen Digital</h4>
+                <p>Hantar salinan dokumen melalui aplikasi mesej yang selamat. Saya akan uruskan segala proses permohonan dengan pihak bank.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h4>Kelulusan & Pengesahan</h4>
+                <p>Setelah pinjaman diluluskan, saya akan berikan penjelasan terperinci mengenai kadar faedah dan struktur bayaran bulanan anda.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-content">
+                <h4>Penyerahan Kunci</h4>
+                <p>Pilih untuk ambil kenderaan di showroom atau saya hantar terus ke lokasi pilihan anda dengan majlis penyerahan yang istimewa.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+
+
+
+    <section class="accessories-section">
+    <h2 class="section-title">Nilai Tambah Untuk Anda</h2>
+    <div class="acc-grid">
+        <div class="acc-card">
+            <div class="acc-icon">🛡️</div>
+            <h4>Waranti 5 Tahun</h4>
+            <p>Perlindungan penuh tanpa had perbatuan untuk ketenangan minda anda dalam jangka masa panjang.</p>
+        </div>
+        
+        <div class="acc-card">
+            <div class="acc-icon">📞</div>
+            <h4>24/7 Roadside Assist</h4>
+            <p>Bantuan kecemasan jalan raya tersedia bila-bila masa anda memerlukannya di mana jua anda berada.</p>
+        </div>
+
+        <div class="acc-card">
+            <div class="acc-icon">✨</div>
+            <h4>Aksesori GR Parts</h4>
+            <p>Pilihan aksesori eksklusif Gazoo Racing untuk penampilan yang lebih sporty dan dinamik.</p>
+        </div>
+
+        <div class="acc-card">
+            <div class="acc-icon">📱</div>
+            <h4>Sistem Telematik</h4>
+            <p>Pantau lokasi dan status kenderaan anda melalui aplikasi telefon pintar dengan teknologi Toyota 24SEVEN.</p>
+        </div>
+    </div>
+    </section>
+    
+
+
+
+    
+    
+    <section class="catalog">
+    <h2 class="section-title">Pilih Model Idaman Anda</h2>
+    
+    <div class="car-card">
+        <img src="https://cms-pub.toyota.com.my/storage/vios-yaris-2023/yaris/exterior/color/silver-metallic-v2.png" alt="Toyota Yaris" class="car-img">
+        <span class="car-price">HARGA DARI RM88,000</span>
+        <h3>Toyota Yaris</h3>
+        <p style="font-size: 0.85rem; color: #666; margin: 10px 0;">
+    Ikon hatchback yang menggabungkan estetika moden dan teknologi keselamatan pintar. Sesuai untuk anda yang mementingkan gaya dan perlindungan dalam setiap pemanduan.
+</p>
+<a href="https://wa.me/60189801186?text=Hai%20Pn%20Misha,%20saya%20berminat%20dengan%20Yaris" class="btn-book">Dapatkan Analisis Pinjaman Percuma</a>
+
+    </div>
+
+    <div class="car-card">
+        <img src="https://cms-pub.toyota.com.my/storage/vios-yaris-2023/vios/exterior/color/platinum-white-pearl.png" alt="Toyota Vios" class="car-img">
+        <span class="car-price">HARGA DARI RM90,600</span>
+        <h3>Toyota Vios</h3>
+        <p style="font-size: 0.85rem; color: #666; margin: 10px 0;">
+    Definisi keselesaan premium dalam kelasnya. Direka khas untuk pemanduan dinamik dengan kabin yang lebih senyap dan ciri pintar yang memudahkan setiap perjalanan.
+</p>
+<a href="https://wa.me/60189801186?text=Hai%20Pn%20Misha,%20saya%20berminat%20dengan%20Vios" class="btn-book">Dapatkan Analisis Pinjaman Percuma</a>
+
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2026 Puan Misha - Authorized Toyota Sales Advisor</p>
+        <p style="margin-top: 5px;">Membantu Anda Dari A-Z</p>
+    </footer>
+
+</body>
+</html>
