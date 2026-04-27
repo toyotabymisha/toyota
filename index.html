@@ -275,6 +275,17 @@
         .acc-grid { grid-template-columns: repeat(4, 1fr); }
         .testi-container { justify-content: center; flex-wrap: wrap; }
     }
+
+    .topmark-logo {
+    height: auto;        /* Benarkan tinggi mengikut nisbah gambar */
+    max-height: 40px;    /* Hadkan tinggi maksimum supaya tidak terlalu besar */
+    max-width: 180px;    /* Hadkan lebar maksimum */
+    width: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Letak di tengah dan beri jarak bawah */
+    object-fit: contain; /* Pastikan gambar tidak terpenyet */
+}
+        
 </style>
 
     <script type="application/ld+json">
