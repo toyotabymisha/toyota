@@ -101,28 +101,45 @@
     .stat-card h3 { color: var(--toyota-red); font-size: 1.3rem; }
     .stat-card p { font-size: 0.8rem; color: #666; }
 
-    /* KEMASKINI: Butang WhatsApp dengan Flexbox */
+    /* KEMASKINI: Butang WhatsApp 2 Baris */
     .btn-whatsapp { 
         display: flex; 
         align-items: center; 
         justify-content: center; 
-        gap: 10px; /* Jarak antara logo dan teks */
+        gap: 15px; 
         background-color: var(--whatsapp-green); 
         color: white; 
         text-decoration: none; 
-        padding: 16px 20px; 
+        padding: 12px 25px; 
         border-radius: 50px; 
-        font-weight: 700; 
         margin: 25px auto; 
-        max-width: 380px; /* Lebar ditambah untuk muat nombor tel */
-        text-align: center; 
+        max-width: 380px; 
+        text-align: left; 
         box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2); 
         transition: 0.3s ease;
     }
 
     .btn-whatsapp img {
-        width: 22px;
-        height: 22px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    .line-1 {
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+    }
+
+    .line-2 {
+        font-size: 0.85rem;
+        font-weight: 400;
+        opacity: 0.95;
     }
 
     .btn-whatsapp:active { transform: scale(0.98); }
@@ -292,8 +309,11 @@
         Nikmati pengalaman memiliki kenderaan baru yang lebih privasi. Saya sedia membantu anda dari proses pemilihan sehingga penghantaran terus ke pintu rumah, tanpa anda perlu bersesak di galeri jualan.
     </p>
     <a href="https://wa.me/60189801186" class="btn-whatsapp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle;">
-    MULAKAN KONSULTASI (018-980 1186)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <div class="btn-text">
+        <span class="line-1">KONSULTASI PERCUMA</span>
+        <span class="line-2">(018-980 1186)</span>
+    </div>
 </a>
     <p style="font-size: 0.85rem; color: #2ecc71; margin-top: 10px; font-weight: 600;">✓ Kami hargai kenderaan lama anda dengan tawaran nilai kompetitif</p>
 </header>
